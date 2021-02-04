@@ -35,6 +35,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.erlang.otp/jinterface -->
+        <dependency>
+            <groupId>org.erlang.otp</groupId>
+            <artifactId>jinterface</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

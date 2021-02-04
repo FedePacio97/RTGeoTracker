@@ -13,6 +13,10 @@
         <element id="directory" name="classes">
           <element id="module-output" name="RTGeoTracker" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.json:json:20201115" />
+          <element id="library" level="project" name="Maven: org.erlang.otp:jinterface:1.6.1" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/RTGeoTracker-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
