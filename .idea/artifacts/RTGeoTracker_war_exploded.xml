@@ -15,7 +15,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.json:json:20201115" />
-          <element id="library" level="project" name="Maven: org.erlang.otp:jinterface:1.6.1" />
+          <element id="library" level="project" name="Maven: clojang:erlang-jinterface:1.10-1" />
         </element>
       </element>
       <element id="directory" name="META-INF">

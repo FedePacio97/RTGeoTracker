@@ -13,4 +13,10 @@
       <module name="RTGeoTracker" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-classpath &quot;$JINTERFACE&quot;" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="RTGeoTracker" options="" />
+    </option>
+  </component>
 </project>
