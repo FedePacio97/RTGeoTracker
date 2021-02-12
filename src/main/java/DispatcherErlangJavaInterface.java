@@ -7,8 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /*
@@ -75,7 +74,13 @@ public class DispatcherErlangJavaInterface {
 
         //driver.myTasks.add(T1);
 
-        driver.doTest();
+        try {
+            driver.doTest();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     //constructor
@@ -101,9 +106,12 @@ public class DispatcherErlangJavaInterface {
     }
 
     //method to run a test
-    private void doTest() {
-        for (Runnable t : myTasks)
-            myExecutor.execute(t);
+    private void doTest() throws ExecutionException, InterruptedException {
+        Future<JSONObject> result;
+        for (Callable t : myTasks) {
+            result = myExecutor.submit(t);
+            System.out.println("Result " + result.get());
+        }
         myExecutor.shutdown();
     }
 
@@ -111,7 +119,9 @@ public class DispatcherErlangJavaInterface {
      * A static nested class to implement a task acting as an independent Erlang client for avgserver
      * (a Runnable one).
      */
-    private static class ClientTask implements Runnable {
+
+    //TODO Should be callable because called by servlet
+    private static class ClientTask implements Callable<JSONObject> {
 
         private final String MAP_OPCODE = "MAP"; //Depend on application logic
         private final String POSITION_OPCODE = "POS"; //Depend on application logic
@@ -151,7 +161,9 @@ public class DispatcherErlangJavaInterface {
         }
 
         @Override
-        public void run() {
+        public JSONObject call() {
+
+            JSONObject response = null;
 
             try {
 
@@ -177,6 +189,8 @@ public class DispatcherErlangJavaInterface {
 
                         System.out.println("Response to send to user " + map_reply.toString());
 
+                        response = map_reply;
+
                         break;
                     case "update":
 
@@ -199,36 +213,24 @@ public class DispatcherErlangJavaInterface {
 
                         System.out.println("Response to send to user " + update_position_reply.toString());
 
+                        response = update_position_reply;
+
                         break;
 
                     default:
                         System.out.println("Unknown opcode! ERROR!");
+
+                        response = new JSONObject()
+                                .put("error", "unknown opcode request");
                         break;
                 }
-
-                /*
-                //composing the request message
-                OtpErlangInt num = new OtpErlangInt(drawnNum);
-                OtpErlangTuple reqMsg = new OtpErlangTuple(new OtpErlangObject[]{this.mbox.self(), num});
-
-                //sending out the request
-                mbox.send(serverRegisteredName, serverNodeName, reqMsg);
-                System.out.println("Request sent by " + Thread.currentThread().toString() + " : " +
-                        reqMsg.toString());
-
-                //blocking receive operation
-                OtpErlangObject msg = mbox.receive();
-                //getting the message content (a number)
-                OtpErlangDouble curr_avg_erlang = (OtpErlangDouble) msg;  //it is supposed to be a tuple...
-                curr_avg = curr_avg_erlang.doubleValue();
-                System.out.println("Response received on mailbox "+mbox.getName()+" : " + msg.toString() +
-                        "Content: " + Double.toString(curr_avg)); */
 
             } catch (Exception e) {
                 System.out.println("ERROR!\n" + e);
                 e.printStackTrace();
             }
 
+            return response;
         }
 
         private String get_random_dispatcher() {

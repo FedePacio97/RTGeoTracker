@@ -16,7 +16,8 @@ public class ServletTrial extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
-
+        //TODO qui prendere riferimento singleton a driver DispatcherErlangJavaInterface e chiamarci sopra addTask.
+        //Siccome ritorna una future, assegnarla alla variabile result e darla indietro al client
 
         try (PrintWriter writer = response.getWriter()) {
             writer.println("<!DOCTYPE html><html>");
