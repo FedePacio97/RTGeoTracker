@@ -16,6 +16,8 @@ public class ServletTrial extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
 
+
+
         try (PrintWriter writer = response.getWriter()) {
             writer.println("<!DOCTYPE html><html>");
             writer.println("<head>");
@@ -29,6 +31,8 @@ public class ServletTrial extends HttpServlet {
             writer.println("</body>");
             writer.println("</html>");
         }
+
+
     }
 
 }
