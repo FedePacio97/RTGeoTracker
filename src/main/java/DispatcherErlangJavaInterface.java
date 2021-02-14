@@ -17,7 +17,7 @@ more than one DispatcherErlangJavaInterface object
  */
 
 public class DispatcherErlangJavaInterface {
-    //TODO become list of dispatchers (their name ids d1@localhost,..d5@localhost)
+    //list of dispatchers (their name ids d1@localhost,..d5@localhost)
     private static List<String> serverNodeNameList; //configuration parameter
     private static final String serverNodeNameBase = "d @localhost"; //replace "_" to create list of dispatchers
     private static Random randomGenerator;
@@ -30,6 +30,8 @@ public class DispatcherErlangJavaInterface {
     private static final ExecutorService myExecutor = Executors.newFixedThreadPool(POOL_SIZE);
 
     private List<ClientTask> myTasks = new ArrayList<>(); //at each request, add a task
+
+    private static volatile DispatcherErlangJavaInterface ref; //Used to implement singleton pattern
 
     public static void main(String[] args) throws IOException {
         //for testing
@@ -86,6 +88,7 @@ public class DispatcherErlangJavaInterface {
     //constructor
     public DispatcherErlangJavaInterface(String cookie, int number_of_dispatchers) throws IOException {
 
+        System.out.println("DispatcherErlangJavaInterface created");
         if (cookie!="") {
             clientNode = new OtpNode(clientNodeName, cookie);
         }
@@ -113,6 +116,15 @@ public class DispatcherErlangJavaInterface {
             System.out.println("Result " + result.get());
         }
         myExecutor.shutdown();
+    }
+
+    public Future executeClientTask(JSONObject task_body) throws IOException {
+        ClientTask T = new ClientTask(task_body);
+        Future result;
+        synchronized (this){
+            result = myExecutor.submit(T);
+        }
+        return result;
     }
 
     /**
