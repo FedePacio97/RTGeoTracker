@@ -80,7 +80,7 @@ public class ServletTrial extends HttpServlet {
             writer.println("</head>");
             writer.println("<body>");
 
-            writer.println("<h1>This is a simple java servlet doPOST.</h1>");
+            writer.println("<h1>This is a simple java servlet doPUT.</h1>");
 
             writer.println("</body>");
             writer.println("</html>");
