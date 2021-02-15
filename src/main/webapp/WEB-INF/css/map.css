@@ -1,0 +1,140 @@
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./../img/map.jpg);
+    /*backdrop-filter: blur(8px);*/
+    background-size: 100% auto;
+    background-attachment: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body>h1 {
+    color: white;
+    text-align: center;
+    font-size: 32pt;
+}
+
+/*players table elem*/
+
+div#players_table {
+    float: left;
+    width: 400px;
+    margin-left: -200px;
+    left: 55%;
+    position: relative;
+    height: 950px;
+    background-color: rgba(100, 100, 100, 0.3);
+    padding: 20px;
+    overflow: scroll;
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+div#players_table::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+div#players_table {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+div.players_table_elem {
+    height: 100px;
+    position: relative;
+    background-color: rgba(170, 170, 170, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 5px;
+    margin-bottom: 20px;
+}
+
+div.clicked_table_div {
+    background-color: rgba(170, 170, 170, 0.8);
+}
+
+/*map playground*/
+
+div#map_div {
+    height: 1000px;
+    width: 1000px;
+    margin-left: -500px;
+    background-color: white;
+    background-image: url(./../img/map.jpg);
+    background-size: 1000px auto;
+    left: 40%;
+    padding: 0px;
+    position: relative;
+    float: left;
+}
+
+/*elements in the map*/
+
+div#map_div>div, div#map_div>p {
+    position: absolute;
+    float: left;
+}
+
+/*pawns in the map*/
+
+div#map_div>div.pawn {
+    background-image: url(./../img/default.png);
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+/*explaining in the map*/
+
+div#map_div>div.explaining {
+    border-radius: 20px;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) transparent;
+    padding: 10px;
+    backdrop-filter: blur(8px);
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+div.explaining>h1 {
+    font-size: 18px;
+    margin: 0px;
+}
+
+div.explaining>p {
+    font-size: 16px;
+    margin: 0px;
+}
+
+/* player follower */
+
+div#map_div>div#follower {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -15px;
+    margin-left: -15px;
+    background: transparent;
+    z-index: 0;
+    border: 5px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(8px);
+}
+
+div#map_div>p#follower_text {
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    width: 100px;
+    margin-left: -50px;
+    max-width: 100px;
+    padding: 0px 5px;
+    white-space: nowrap;
+    color: white;
+}
