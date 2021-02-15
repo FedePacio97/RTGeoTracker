@@ -73,17 +73,7 @@ public class ServletTrial extends HttpServlet {
         }*/
 
         try (PrintWriter writer = response.getWriter()) {
-            writer.println("<!DOCTYPE html><html>");
-            writer.println("<head>");
-            writer.println("<meta charset=\"UTF-8\" />");
-            writer.println("<title>MyServlet.java:doGet(): Servlet code!</title>");
-            writer.println("</head>");
-            writer.println("<body>");
-
-            writer.println("<h1>This is a simple java servlet doPUT.</h1>");
-
-            writer.println("</body>");
-            writer.println("</html>");
+            //TODO write JSON AS IT IS
         }
 
     }
@@ -140,17 +130,7 @@ public class ServletTrial extends HttpServlet {
         }*/
 
         try (PrintWriter writer = response.getWriter()) {
-            writer.println("<!DOCTYPE html><html>");
-            writer.println("<head>");
-            writer.println("<meta charset=\"UTF-8\" />");
-            writer.println("<title>MyServlet.java:doGet(): Servlet code!</title>");
-            writer.println("</head>");
-            writer.println("<body>");
-
-            writer.println("<h1>This is a simple java servlet doPOST.</h1>");
-
-            writer.println("</body>");
-            writer.println("</html>");
+            //TODO write JSON AS IT IS
         }
 
     }

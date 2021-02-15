@@ -24,6 +24,10 @@ function main() {
         }
     }
     CURRENT_PLAYER_USERNAME = "pippo";
+    CURRENT_PLAYER["player"] = CURRENT_PLAYER_USERNAME;
+    CURRENT_PLAYER["position_x"] = 500;
+    CURRENT_PLAYER["position_y"] = 500
+    buildCurrentPlayer();
 }
 
 function handleKey(key) {
@@ -46,8 +50,44 @@ function handleKey(key) {
     sendNewPlayerPosition();
 }
 
+function buildCurrentPlayer(){
+    var playerPawn = document.getElementById(CURRENT_PLAYER_USERNAME + '_pawn_div');
+    playerPawn.setAttribute('id', CURRENT_PLAYER_USERNAME + '_pawn_div' + '_pawn_div');
+    playerPawn.setAttribute('class', "pawn player");
+
+    //listen to mouseover and mouseleave for explaining div
+    playerPawn.onmouseover = function (e) {
+        buildExplainingDivForPlayer(CURRENT_PLAYER);
+    }
+
+    playerPawn.onmouseleave = function (e) {
+        var explainingDiv = document.getElementById(CURRENT_PLAYER_USERNAME + '_explaining_div');
+        if (explainingDiv != null) {
+            explainingDiv.remove();
+        }
+    }
+
+    //listen to mouseup for selecting the followed player
+    playerPawn.onmouseup = function (e) {
+        if (FOLLOWED_PLAYER == null || FOLLOWED_PLAYER.player != CURRENT_PLAYER_USERNAME) {
+            for(i = 0; i<LIST.length; i++){
+                if(CURRENT_PLAYER_USERNAME == LIST[i].player){
+                    FOLLOWED_PLAYER = LIST[i];
+                    break;
+                }
+            }
+
+        } else {
+            FOLLOWED_PLAYER = null;
+        }
+        updatePlayerFollower();
+        updatePlayersTableSelected();
+    }
+}
+
 function drawPlayer(player) {
-    var playerPawn = document.getElementById(player.player + '_pawn_div');
+    var playerPawn = document.createElement('div');
+    player.player + '_pawn_div'
 
     // if player doesn't exists
     if (playerPawn == null) {

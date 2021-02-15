@@ -89,6 +89,10 @@ div#map_div>div.pawn {
     z-index: 1;
 }
 
+div#map_div>div.player{
+    background-image: url(./../img/player.png);
+}
+
 /*explaining in the map*/
 
 div#map_div>div.explaining {

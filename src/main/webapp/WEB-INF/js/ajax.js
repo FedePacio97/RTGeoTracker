@@ -71,10 +71,7 @@ function requestForPlayerPositions() {
 
     xhttp.open("GET", "positions.json", true);
 
-    //TODO hardcoded people
-    for(var name in ["graziano", "silvano", "mariano"]) {
-        PLAYERS_VERSION[name] = (PLAYERS_VERSION[name] == null) ? 1 : PLAYERS_VERSION[name];
-    }
+    //TODO PLAYERS IN RADIUS
     xhttp.send(JSON.stringify({
         "opcode": "MAP",
         "close_players": [
