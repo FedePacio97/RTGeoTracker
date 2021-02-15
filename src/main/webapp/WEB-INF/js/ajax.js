@@ -9,7 +9,7 @@ var DEBUG_POSITIONS = {
     "Mariano_y": 80
 };
 
-function setNewPlayerPosition() {
+function sendNewPlayerPosition() {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {

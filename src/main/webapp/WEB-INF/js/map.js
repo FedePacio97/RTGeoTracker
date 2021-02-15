@@ -43,7 +43,7 @@ function handleKey(key) {
         default:
             return;
     }
-    setNewPlayerPosition();
+    sendNewPlayerPosition();
 }
 
 function drawPlayer(player) {
