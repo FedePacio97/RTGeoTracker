@@ -5,6 +5,11 @@
     <title>Login page</title>
     <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/login.css">
+    <script type="text/javascript">
+        function login(){
+            localStorage.setItem("username", document.getElementById("username").value);
+        }
+    </script>
 </head>
 
 <body>
@@ -14,7 +19,7 @@
 
         <p>Password: <input type="password" id="password"><br></p>
 
-        <input id="submit" type="submit" value="Submit">
+        <input id="submit" type="submit" value="Submit" onclick="login()">
     </form>
 </body>
 
