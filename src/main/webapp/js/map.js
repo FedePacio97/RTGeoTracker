@@ -2,7 +2,7 @@ const AJAX_POLLING_PERIOD_MS = 500;
 const PLAYER_PAWN_SIZE = 50;
 const CLOSE_PLAYERS_RADIUS = 100;
 var MAP = null;
-var LIST = null;
+var LIST = [];
 
 var FOLLOWED_PLAYER = null;
 var CURRENT_PLAYER_USERNAME = null;
