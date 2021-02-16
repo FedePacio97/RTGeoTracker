@@ -1,4 +1,4 @@
-const DEBUG_FLAG = true
+const DEBUG_FLAG = false
 
 var DEBUG_POSITIONS = {
     "Graziano_x": 180,
@@ -14,7 +14,11 @@ function sendNewPlayerPosition() {
 
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            PLAYERS_VERSION[CURRENT_PLAYER_USERNAME] = parseInt(JSON.parse(xhttp.responseText).version);
+            if(JSON.parse(xhr.responseText).response === "BAD"){
+                console.log("Server responding 'BAD' in position update");
+                return;
+            }
+            PLAYERS_VERSION[CURRENT_PLAYER_USERNAME] = parseInt(JSON.parse(xhr.responseText).version);
         }
     };
 
@@ -53,6 +57,10 @@ function requestForPlayerPositions() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            if(JSON.parse(xhttp.responseText).response === "BAD"){
+                console.log("Server responding 'BAD' in map request");
+                return;
+            }
             var players = JSON.parse(xhttp.responseText).players;
             var positions = {};
 

@@ -49,7 +49,7 @@ function handleKey(key) {
         default:
             return;
     }
-    //sendNewPlayerPosition();
+    sendNewPlayerPosition();
     document.getElementById(CURRENT_PLAYER_USERNAME + "_pawn_div").setAttribute('style', '' +
         'height: ' + PLAYER_PAWN_SIZE + 'px;' +
         'width: ' + PLAYER_PAWN_SIZE + 'px;' +

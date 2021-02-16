@@ -24,7 +24,7 @@ public class ServletTrial extends HttpServlet {
 
     public ServletTrial() throws IOException {
 
-        //driver = new DispatcherErlangJavaInterface(cookie, NumberOfDispatchers);
+        driver = new DispatcherErlangJavaInterface(cookie, NumberOfDispatchers);
 
     }
 
@@ -61,7 +61,7 @@ public class ServletTrial extends HttpServlet {
         JSONObject update_player = jsonObject;
 
         //Siccome ritorna una future, assegnarla alla variabile result e darla indietro al client (MODO DA DEFINIRE (Decidi te marco))
-        //Future result = driver.executeClientTask(update_player);
+        Future result = driver.executeClientTask(update_player);
 
         //TODO to be deleted after Marco(rella) will have implemented the response content
         /*try {
@@ -74,7 +74,7 @@ public class ServletTrial extends HttpServlet {
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
-            //writer.write(result.toString());
+            writer.write(result.toString());
         }
 
     }
@@ -119,7 +119,7 @@ public class ServletTrial extends HttpServlet {
         JSONObject map_request = jsonObject;
 
         //Siccome ritorna una future, assegnarla alla variabile result e darla indietro al client (MODO DA DEFINIRE (Decidi te marco))
-        //Future result = driver.executeClientTask(map_request);
+        Future result = driver.executeClientTask(map_request);
 
         //TODO to be deleted after Marco(rella) will have implemented the response content
         /*try {
@@ -132,7 +132,7 @@ public class ServletTrial extends HttpServlet {
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
-            //writer.write(result.toString());
+            writer.write(result.toString());
         }
 
     }
@@ -141,7 +141,7 @@ public class ServletTrial extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
-        request.getRequestDispatcher("/WEB-INF/html/map.html").forward(request, response);
+        request.getRequestDispatcher("/html/map.html").forward(request, response);
     }
 
 }
