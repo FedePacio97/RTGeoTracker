@@ -23,7 +23,7 @@ function sendNewPlayerPosition() {
     xhr.send(JSON.stringify({
         "opcode": "POS",
         "username": CURRENT_PLAYER_USERNAME,
-        "state": {"x": CURRENT_PLAYER.x_position, "y": CURRENT_PLAYER.y_position},
+        "state": {"x": CURRENT_PLAYER.position_x, "y": CURRENT_PLAYER.position_y},
         "version": PLAYERS_VERSION[CURRENT_PLAYER_USERNAME],
         "priority": 1
     }));
@@ -71,22 +71,18 @@ function requestForPlayerPositions() {
 
     xhttp.open("GET", "positions.json", true);
 
-    //TODO PLAYERS IN RADIUS
-    xhttp.send(JSON.stringify({
+    var request = {
         "opcode": "MAP",
-        "close_players": [
-            {
-                "username": "graziano",
-                "version" : PLAYERS_VERSION["graziano"]
-            },
-            {
-                "username": "silvano",
-                "version" : PLAYERS_VERSION["silvano"]
-            },
-            {
-                "username": "mariano",
-                "version" : PLAYERS_VERSION["mariano"]
-            }
-        ]
-    }));
+        "close_players": []
+    }
+    //TODO PLAYERS IN RADIUS
+    for(var i = 0; i< LIST.length; i++){
+        if((LIST[i].position_x - CURRENT_PLAYER.position_x)**2 + (LIST[i].position_y - CURRENT_PLAYER.position_y)**2 < CLOSE_PLAYERS_RADIUS**2){
+            request.close_players.push({
+                username: LIST[i].player,
+                version: PLAYERS_VERSION[LIST[i].player]
+            });
+        }
+    }
+    xhttp.send(JSON.stringify(request));
 }
