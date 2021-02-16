@@ -20,7 +20,7 @@ public class ServletLogin extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if(login.get(username) == password){
-            response.sendRedirect(request.getContextPath() + "/map.html");
+            response.sendRedirect(request.getContextPath() + "/ServletTrial");
         }
     }
 
