@@ -19,14 +19,14 @@ more than one DispatcherErlangJavaInterface object
 public class DispatcherErlangJavaInterface {
     //list of dispatchers (their name ids d1@localhost,..d5@localhost)
     private static List<String> serverNodeNameList; //configuration parameter
-    private static final String serverNodeNameBase = "d @localhost"; //replace "_" to create list of dispatchers
+    private static final String serverNodeNameBase = "d @dispatcher "; //replace "_" to create list of dispatchers
     private static Random randomGenerator;
     private static final String serverRegisteredName = "dispatcher"; //configuration parameter
 
     private static final String clientNodeName = "client_node@localhost"; //configuration parameter
     private static OtpNode clientNode;  //initialized in constructor
 
-    private static final int POOL_SIZE = 2; //configuration parameter
+    private static final int POOL_SIZE = 4; //configuration parameter
     private static final ExecutorService myExecutor = Executors.newFixedThreadPool(POOL_SIZE);
 
     private List<ClientTask> myTasks = new ArrayList<>(); //at each request, add a task
