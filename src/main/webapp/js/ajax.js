@@ -77,7 +77,7 @@ function requestForPlayerPositions() {
         }
     };
 
-    xhttp.open("GET", "positions.json", true);
+    xhttp.open("PUT", "http://localhost:8080/RTGeoTracker_war_exploded/ServletTrial", true);
 
     var request = {
         "opcode": "MAP",
