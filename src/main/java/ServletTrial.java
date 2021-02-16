@@ -19,7 +19,7 @@ public class ServletTrial extends HttpServlet {
 
     private DispatcherErlangJavaInterface driver;
     private final int NumberOfDispatchers = 2;
-    private final String cookie = "erljava";
+    private final String cookie = "gtgp";
 
 
     public ServletTrial() throws IOException {
@@ -48,7 +48,7 @@ public class ServletTrial extends HttpServlet {
             throw new IOException("Error parsing JSON request string");
         }
 
-        System.out.println(jsonObject);
+        System.out.println("Payload for update -> " + jsonObject);
 
         /*JSONObject update_player = new JSONObject()
                 .put("opcode","POS")
@@ -103,7 +103,7 @@ public class ServletTrial extends HttpServlet {
             throw new IOException("Error parsing JSON request string");
         }
 
-        System.out.println(jsonObject);
+        System.out.println("Payload for map -> " + jsonObject);
 
 
         /*JSONObject player1 = new JSONObject()

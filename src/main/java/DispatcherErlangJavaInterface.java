@@ -19,7 +19,7 @@ more than one DispatcherErlangJavaInterface object
 public class DispatcherErlangJavaInterface {
     //list of dispatchers (their name ids d1@localhost,..d5@localhost)
     private static List<String> serverNodeNameList; //configuration parameter
-    private static final String serverNodeNameBase = "d @localhost"; //replace "_" to create list of dispatchers
+    private static final String serverNodeNameBase = "d @dispatcher "; //replace "_" to create list of dispatchers
     private static Random randomGenerator;
     private static final String serverRegisteredName = "dispatcher"; //configuration parameter
 
@@ -35,7 +35,7 @@ public class DispatcherErlangJavaInterface {
 
     public static void main(String[] args) throws IOException {
         //for testing
-        DispatcherErlangJavaInterface driver = new DispatcherErlangJavaInterface("erljava", 2);
+        DispatcherErlangJavaInterface driver = new DispatcherErlangJavaInterface("gtgp", 2);
 
         JSONObject player1 = new JSONObject()
                             .put("username","pippo")
@@ -120,6 +120,8 @@ public class DispatcherErlangJavaInterface {
 
     public Future executeClientTask(JSONObject task_body) throws IOException {
         ClientTask T = new ClientTask(task_body);
+
+        System.out.println("Type " + T.type);
         Future result;
         synchronized (this){
             result = myExecutor.submit(T);
@@ -179,7 +181,7 @@ public class DispatcherErlangJavaInterface {
 
             try {
 
-                switch (type){
+                switch (this.type){
                     case "map":
 
                         System.out.println("Map requested");
