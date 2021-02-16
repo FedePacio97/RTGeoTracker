@@ -74,7 +74,11 @@ public class ServletTrial extends HttpServlet {
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
-            writer.write(result.toString());
+            writer.write(result.get().toString());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
 
     }
@@ -132,7 +136,11 @@ public class ServletTrial extends HttpServlet {
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
-            writer.write(result.toString());
+            writer.write(result.get().toString());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
 
     }
