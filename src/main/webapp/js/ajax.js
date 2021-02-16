@@ -22,7 +22,7 @@ function sendNewPlayerPosition() {
         }
     };
 
-    xhr.open("POST", "http://localhost:8080/RTGeoTracker_war_exploded/ServletTrial", true);
+    xhr.open("POST", "./ServletTrial", true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         "opcode": "POS",
@@ -86,7 +86,7 @@ function requestForPlayerPositions() {
         }
     };
 
-    xhttp.open("PUT", "http://localhost:8080/RTGeoTracker_war_exploded/ServletTrial", true);
+    xhttp.open("PUT", "./ServletTrial", true);
 
     var request = {
         "opcode": "MAP",

@@ -1,8 +1,6 @@
 import com.ericsson.otp.erlang.*;
-import javafx.application.Application;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,7 @@ public class DispatcherErlangJavaInterface {
     private static Random randomGenerator;
     private static final String serverRegisteredName = "dispatcher"; //configuration parameter
 
-    private static final String clientNodeName = "client_node@localhost"; //configuration parameter
+    private static final String clientNodeName = "client_node"; //configuration parameter
     private static OtpNode clientNode;  //initialized in constructor
 
     private static final int POOL_SIZE = 6; //configuration parameter

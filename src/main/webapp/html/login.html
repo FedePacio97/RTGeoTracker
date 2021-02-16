@@ -14,10 +14,10 @@
 
 <body>
     <h1>MAP GEOTRACKER</h1>
-    <form action="http://localhost:8080/RTGeoTracker_war_exploded/ServletLogin" method="POST">
-        <p>Username: <input type="text" id="username"><br></p>
+    <form action="./ServletLogin" method="POST">
+        <p>Username: <input type="text" id="username" name="username"><br></p>
 
-        <p>Password: <input type="password" id="password"><br></p>
+        <p>Password: <input type="password" id="password" name="password"><br></p>
 
         <input id="submit" type="submit" value="Submit" onclick="login()">
     </form>

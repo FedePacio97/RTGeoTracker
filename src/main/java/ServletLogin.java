@@ -16,10 +16,11 @@ public class ServletLogin extends HttpServlet {
         login.put("silvano", "silvano");
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(login.get(username) == password){
+        System.out.println("Password: " + password);
+        if(login.get(username).equals(password)){
             response.sendRedirect(request.getContextPath() + "/ServletTrial");
         }
     }
