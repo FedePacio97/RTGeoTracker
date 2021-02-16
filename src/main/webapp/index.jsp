@@ -5,6 +5,6 @@
 </head>
 <body>
 <h1>Simple Java Web App Demo</h1>
-<p>To invoke the java servlet click <a href="ServletTrial">here</a></p>
+<p>To invoke the java servlet click <a href="ServletLogin">here</a></p>
 </body>
 </html>
