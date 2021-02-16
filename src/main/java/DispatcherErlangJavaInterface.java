@@ -26,7 +26,7 @@ public class DispatcherErlangJavaInterface {
     private static final String clientNodeName = "client_node@localhost"; //configuration parameter
     private static OtpNode clientNode;  //initialized in constructor
 
-    private static final int POOL_SIZE = 4; //configuration parameter
+    private static final int POOL_SIZE = 6; //configuration parameter
     private static final ExecutorService myExecutor = Executors.newFixedThreadPool(POOL_SIZE);
 
     private List<ClientTask> myTasks = new ArrayList<>(); //at each request, add a task
