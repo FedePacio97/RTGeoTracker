@@ -25,10 +25,11 @@ function main() {
             updatePlayersTableSelected();
         }
     }
-    CURRENT_PLAYER_USERNAME = "pippo";
+    CURRENT_PLAYER_USERNAME = localStorage.getItem("username");
     CURRENT_PLAYER["player"] = CURRENT_PLAYER_USERNAME;
     CURRENT_PLAYER["position_x"] = 500;
     CURRENT_PLAYER["position_y"] = 500
+    PLAYERS_VERSION[CURRENT_PLAYER_USERNAME] = 1;
     buildCurrentPlayer();
 }
 
