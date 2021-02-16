@@ -1,0 +1,26 @@
+form {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.7);
+    padding:20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-left:-145px;
+    left:50%;
+    position: relative;
+    margin-top:100px;
+}
+
+form>p{
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+input{
+    border-radius: 20px;
+    font-size: 20px;
+    border: transparent;
+}
+
+#submit{
+    padding:10px;
+}

@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(./../img/map.jpg);
+    /*backdrop-filter: blur(8px);*/
+    background-size: 100% auto;
+    background-attachment: fixed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body>h1 {
+    color: white;
+    text-align: center;
+    font-size: 32pt;
+}
