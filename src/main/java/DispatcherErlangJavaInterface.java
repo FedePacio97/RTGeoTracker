@@ -19,7 +19,7 @@ more than one DispatcherErlangJavaInterface object
 public class DispatcherErlangJavaInterface {
     //list of dispatchers (their name ids d1@localhost,..d5@localhost)
     private static List<String> serverNodeNameList; //configuration parameter
-    private static final String serverNodeNameBase = "d @dispatcher "; //replace "_" to create list of dispatchers
+    private static final String serverNodeNameBase = "d @localhost"; //replace "_" to create list of dispatchers
     private static Random randomGenerator;
     private static final String serverRegisteredName = "dispatcher"; //configuration parameter
 

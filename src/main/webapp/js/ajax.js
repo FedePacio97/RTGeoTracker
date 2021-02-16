@@ -62,18 +62,27 @@ function requestForPlayerPositions() {
                 return;
             }
             var players = JSON.parse(xhttp.responseText).players;
-            var positions = {};
+            var positions = [];
 
             //convert formats and update versions
             for (let i = 0; i < players.length; i++) {
-                if(players[i].username == CURRENT_PLAYER_USERNAME){
+                console.log("CURRENT_PLAYER_USERNAME " + CURRENT_PLAYER_USERNAME);
+                console.log("players[i].username " + players[i].username);
+                if(players[i].username === CURRENT_PLAYER_USERNAME){
+                    console.log("Username equal!")
                     continue;
                 }
-                positions["players"].push({"player":players[i].username, "position_x":players[i].state.x, "position_y":players[i].state.y});
+                positions.push({"player":players[i].username, "position_x":parseInt(players[i].state.x), "position_y":parseInt(players[i].state.y)});
                 PLAYERS_VERSION[players[i].username] = parseInt(players[i].version);
             }
+            //console.log("Username " + positions[0].player);
+            //console.log("x " + positions[0].position_x);
+            //console.log("y " + positions[0].position_y);
 
-            drawPlayers(positions)
+            //console.log("x " + players[0].state.x);
+            //console.log("y " + players[0].state.y);
+
+            drawPlayers(positions);
         }
     };
 
