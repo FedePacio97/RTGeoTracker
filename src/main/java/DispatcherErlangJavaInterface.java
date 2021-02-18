@@ -128,7 +128,7 @@ public class DispatcherErlangJavaInterface {
     }
 
     /**
-     * A static nested class to implement a task acting as an independent Erlang client for avgserver
+     * A static nested class to implement a task acting as an independent Erlang client
      * (a Runnable one).
      */
 
