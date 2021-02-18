@@ -50,27 +50,9 @@ public class ServletTrial extends HttpServlet {
 
         System.out.println("Payload for update -> " + jsonObject);
 
-        /*JSONObject update_player = new JSONObject()
-                .put("opcode","POS")
-                .put("username","pippo")
-                .put("state",new JSONObject().put("x",5).put("y",3))
-                .put("version",2)
-                .put("priority",1);
-        */
-
         JSONObject update_player = jsonObject;
 
-        //Siccome ritorna una future, assegnarla alla variabile result e darla indietro al client (MODO DA DEFINIRE (Decidi te marco))
         Future result = driver.executeClientTask(update_player);
-
-        //TODO to be deleted after Marco(rella) will have implemented the response content
-        /*try {
-            System.out.println("Result " + result.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }*/
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
@@ -105,34 +87,9 @@ public class ServletTrial extends HttpServlet {
 
         System.out.println("Payload for map -> " + jsonObject);
 
-
-        /*JSONObject player1 = new JSONObject()
-                .put("username","pippo")
-                .put("version",4);
-        JSONObject player2 = new JSONObject()
-                .put("username","pluto")
-                .put("version",2);
-        JSONArray array_players = new JSONArray()
-                .put(player1)
-                .put(player2);
-
-        JSONObject map_request = new JSONObject()
-                .put("opcode","MAP")
-                .put("close_players",array_players);*/
-
         JSONObject map_request = jsonObject;
-
-        //Siccome ritorna una future, assegnarla alla variabile result e darla indietro al client (MODO DA DEFINIRE (Decidi te marco))
+        
         Future result = driver.executeClientTask(map_request);
-
-        //TODO to be deleted after Marco(rella) will have implemented the response content
-        /*try {
-            System.out.println("Result " + result.get());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }*/
 
         try (PrintWriter writer = response.getWriter()) {
             //TODO write JSON AS IT IS
