@@ -252,35 +252,3 @@ public class DispatcherErlangJavaInterface {
     }
 
 }
-
-
-/*
-String cookie = "erljava";
-        OtpSelf self = new OtpSelf("client",cookie);
-        OtpPeer server= new OtpPeer("d1@localhost");
-        OtpConnection connection = self.connect(server);
-
-        OtpErlangObject[] msg = new OtpErlangObject[3];
-        msg[0] = new OtpErlangAtom(self.node());
-        msg[1] = new OtpErlangAtom("update");
-        msg[2] = new OtpErlangAtom("hello, world");
-        OtpErlangTuple tuple = new OtpErlangTuple(msg);
-        connection.send("dispatcher",tuple);
-        //connection.sendRPC("dispatcher","updatePosition", new OtpErlangList());
-        OtpErlangObject reply = connection.receiveRPC();
-        //connection.send("d1@localhost", tuple);
-
-        //connection.sendRPC("dispatcher","hallau",new OtpErlangList());
-
-                DispatcherErlangJavaInterface driver = new DispatcherErlangJavaInterface(cookie);
-                OtpErlangInt num = new OtpErlangInt(1);
-                OtpErlangTuple reqMsg = new OtpErlangTuple(new OtpErlangObject[]{driver.mbox.self(), num});
-
-                if (clientNode.ping("d1@localhost", 10000))
-                    System.out.println("server is up");
-                else
-                    System.out.println("server is down");
-
-
-
- */
